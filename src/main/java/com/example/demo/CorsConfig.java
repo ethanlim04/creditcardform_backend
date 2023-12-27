@@ -33,5 +33,13 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedHeaders("*")
                 .exposedHeaders("Authorization")
                 .maxAge(3600);
+        registry.addMapping("/api/download") // Adjust the mapping pattern as needed
+                .allowedOrigins("http://localhost:3000") // Add the origin of your React app
+                // .allowedOrigins("https://github.com/ethanlim04/creditcardform") // Add the origin of your React app
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowCredentials(true)
+                .allowedHeaders("*")
+                .exposedHeaders("Authorization")
+                .maxAge(3600);
     }
 }
