@@ -98,21 +98,21 @@ public class controller {
 
                         if(FieldName.contains("FamilyName[0]")) {
                             formValue = res.lastname;
+                            if(FieldName.contains("CCHolderFamilyName[0]")) {
+                                formValue = res.card_lastname;
+                            }
                         }
                         else if(FieldName.contains("GivenName[0]")) {
                             formValue = res.firstname;
+                            if(FieldName.contains("CCHolderGivenName[0]")) {
+                                formValue = res.card_firstname;
+                            }
                         }
                         else if(FieldName.contains("MiddleName[0]")) {
                             formValue = res.midname;
-                        }
-                        else if(FieldName.contains("CCHolderMiddleName[0]")) {
-                            formValue = res.card_midname;
-                        }
-                        else if(FieldName.contains("CCHolderGivenName[0]")) {
-                            formValue = res.card_firstname;
-                        }
-                        else if(FieldName.contains("CCHolderFamilyName[0]")) {
-                            formValue = res.card_lastname;
+                            if(FieldName.contains("CCHolderMiddleName[0]")) {
+                                formValue = res.card_midname;
+                            }
                         }
                         else if(FieldName.contains("Pt1Line2b_StreetNumberName[0]")) {
                             formValue = res.addr;
@@ -150,15 +150,15 @@ public class controller {
                             continue;
                         }
                         else if(FieldName.contains("CreditCardTypeChBx[1]") && res.card_type.contains("MasterCard")) {
-                            childFieldlv2.setValue("V");
+                            childFieldlv2.setValue("MC");
                             continue;
                         }
                         else if(FieldName.contains("CreditCardTypeChBx[2]") && res.card_type.contains("American Express")) {
-                            childFieldlv2.setValue("V");
+                            childFieldlv2.setValue("A");
                             continue;
                         }
                         else if(FieldName.contains("CreditCardTypeChBx[3]") && res.card_type.contains("Discover")) {
-                            childFieldlv2.setValue("V");
+                            childFieldlv2.setValue("D");
                             continue;
                         }
                         else if(FieldName.contains("CCHolderAptSteFlr_Unit[0]") && res.addr_type.contains("ste")) {
